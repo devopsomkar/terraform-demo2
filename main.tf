@@ -61,7 +61,7 @@ resource "aws_security_group" "nginx_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Restrict to your IP in prod
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
@@ -89,10 +89,10 @@ resource "aws_instance" "nginx_server" {
     volume_type = "gp3"
   }
 
-  user_data = base64encode(templatefile("${path.module}/user_data.sh", {
+  user_data = templatefile("${path.module}/user_data.sh", {
     dynatrace_tenant = var.dynatrace_tenant
     dynatrace_token  = var.dynatrace_token
-  }))
+  })
 
   tags = {
     Name        = "nginx-dynatrace-server"
