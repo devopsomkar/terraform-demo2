@@ -27,6 +27,11 @@ data "aws_subnet" "public" {
     name   = "default-for-az"
     values = ["true"]
   }
+
+  filter {
+    name   = "availability-zone"
+    values = ["us-east-1a"]
+  }
 }
 
 resource "aws_security_group" "nginx_sg" {
