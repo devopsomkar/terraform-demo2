@@ -81,7 +81,7 @@ resource "aws_instance" "nginx_server" {
   subnet_id              = data.aws_subnet.public.id
   vpc_security_group_ids = [aws_security_group.nginx_sg.id]
   associate_public_ip_address = true
-  key_name               = null  # No keypair for simplicity; use Session Manager if needed
+  key_name               = ok  # No keypair for simplicity; use Session Manager if needed
 
   user_data = base64encode(templatefile("${path.module}/user_data.sh", {
     dynatrace_tenant = var.dynatrace_tenant
