@@ -18,7 +18,7 @@ EOF
 
 
 cd /tmp && \
-curl -L -H "Authorization: Api-Token dt0c01.JQCQRMPU27SN3NP35HZXZPVB.HIE7JD2D5MLYRIWMQ6WAF4PMJPQXYDTXCEFCWNMAB6HGZLNJM4Y6FXLRBC5VMJJA" \
+curl -L -H "Authorization: Api-Token " \
 "https://azs89024.live.dynatrace.com/api/v1/deployment/installer/agent/unix/default/latest?arch=x86" \
 -o Dynatrace-OneAgent-Linux.sh
 
